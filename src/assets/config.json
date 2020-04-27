@@ -1,0 +1,51 @@
+{
+  "orMgrUrl": "http://or-manager.localstack",
+  "sentry": {
+    "dsn": "http://2868ac58876449b2a51367a3f8428aca@localhost:9995/3"
+  },
+  "messagesApi": {
+    "baseUrl": "http://messages-api.localstack"
+  },
+  "streamerApiConfig": {
+    "baseUrl": "http://streamer-api.localstack",
+    "hlsUrl": "http://streamer-api.localstack/manifests"
+  },
+  "orApiConfig": {
+    "baseUrl": "http://or-api.localstack"
+  },
+  "dataApiConfig": {
+    "baseUrl": "http://data-api.localstack"
+  },
+  "worklistApiConfig": {
+    "baseUrl": "http://worklist-api.localstack",
+    "mockWorklistApi": false
+  },
+  "notifierSocketIOConfig": {
+    "baseUrl": "http://external-notifier.localstack",
+    "opts": {
+      "path": "/socket.io"
+    }
+  },
+  "cornerstoneConfig": {
+    "dataUrl": "http://data-api.localstack/data",
+    "wadoLoaderConfig": {
+      "webWorkerPath": "/assets/cornerstone/cornerstoneWADOImageLoaderWebWorker.js",
+      "taskConfiguration": {
+        "decodeTask": {
+          "codecsPath": "/assets/cornerstone/cornerstoneWADOImageLoaderCodecs.js"
+        }
+      }
+    }
+  },
+  "dataloggerBridgeConfig": {
+    "gatewayUrl": "http://datalogger-bridge.localstack/datalogger-message",
+    "newMessageEventName": "DATALOGGER_EVENT"
+  },
+  "dataVisualizerConfig": {
+    "datasetsSize": 60,
+    "intervalDelay": 250
+  },
+  "videoRecorderConfig": {
+    "baseUrl": "http://192.168.229.185:3000"
+  }
+}
