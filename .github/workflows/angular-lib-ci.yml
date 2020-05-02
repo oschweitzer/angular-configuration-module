@@ -9,7 +9,7 @@ jobs:
                 node-version: [12.x]
         steps:
             - uses: actions/checkout@v2
-            - name: Setup NodeJS
+            - name: Setup NodeJS and run lint
               uses: actions/setup-node@v1
               with:
                 node-version: ${{ matrix.node }}
@@ -17,16 +17,10 @@ jobs:
             - run: npm run lint  # will run linter for the testing application AND library
 
     test:
-        runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [10.x, 12.x]
+        container: olivierschweitzer/node-headless-browsers:latest
         steps:
             - uses: actions/checkout@v2
-            - name: Setup NodeJS
-              uses: actions/setup-node@v1
-              with:
-                node-version: ${{ matrix.node }}
+            - name: Setup NodeJS and run tests
             - run: npm ci --prefer-offline
             - run: npm run test  # will run tests for the testing application AND library
 
@@ -37,7 +31,7 @@ jobs:
                 node-version: [10.x, 12.x]
         steps:
             - uses: actions/checkout@v2
-            - name: Setup NodeJS
+            - name: Setup NodeJS and build testing application
               uses: actions/setup-node@v1
               with:
                 node-version: ${{ matrix.node }}
@@ -51,7 +45,7 @@ jobs:
                 node-version: [10.x, 12.x]
         steps:
             - uses: actions/checkout@v2
-            - name: Setup NodeJS
+            - name: Setup NodeJS and build library
               uses: actions/setup-node@v1
               with:
                 node-version: ${{ matrix.node }}
