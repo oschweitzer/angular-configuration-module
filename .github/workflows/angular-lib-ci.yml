@@ -18,7 +18,9 @@ jobs:
 
     test:
         runs-on: ubuntu-latest
-        container: olivierschweitzer/node-headless-browsers:latest
+        container: 
+            image: olivierschweitzer/node-headless-browsers:latest
+            options: --user 1001
         steps:
             - uses: actions/checkout@v2
             - name: Setup NodeJS and run tests
