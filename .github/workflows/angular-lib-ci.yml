@@ -1,0 +1,59 @@
+name: Angular library CI
+on: push
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [10.x, 12.x]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Setup NodeJS
+              uses: actions/setup-node@v1
+              with:
+                node-version: ${{ matrix.node }}
+            - run: npm ci --prefer-offline
+            - run: npm run lint  # will run linter for the testing application AND library
+
+    test:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [10.x, 12.x]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Setup NodeJS
+              uses: actions/setup-node@v1
+              with:
+                node-version: ${{ matrix.node }}
+            - run: npm ci --prefer-offline
+            - run: npm run test  # will run tests for the testing application AND library
+
+    app-build:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [10.x, 12.x]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Setup NodeJS
+              uses: actions/setup-node@v1
+              with:
+                node-version: ${{ matrix.node }}
+            - run: npm ci --prefer-offline
+            - run: npm run build
+    
+    library-build:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [10.x, 12.x]
+        steps:
+            - uses: actions/checkout@v2
+            - name: Setup NodeJS
+              uses: actions/setup-node@v1
+              with:
+                node-version: ${{ matrix.node }}
+            - run: npm ci --prefer-offline
+            - run: npm run lib:build
