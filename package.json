@@ -10,6 +10,7 @@
     "lib:build": "ng build configuration --prod",
     "lib:link": "ng build configuration --prod && cd dist/angular-configuration-module && npm link",
     "lib:test": "ng test configuration --watch=false --browsers=ChromeHeadless,FirefoxHeadless",
+    "lib:publish": "cd dist/angular-configuration-module && npm --no-git-tag-version --allow-same-version version $CI_BUILD_TAG && npm publish",
     "lint": "npx eslint . --ext .ts,.tsx",
     "lint:fix": "npx eslint --fix . --ext .ts,.tsx"
   },
