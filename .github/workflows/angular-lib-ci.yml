@@ -17,6 +17,7 @@ jobs:
             - run: npm run lint  # will run linter for the testing application AND library
 
     test:
+        runs-on: ubuntu-latest
         container: olivierschweitzer/node-headless-browsers:latest
         steps:
             - uses: actions/checkout@v2
