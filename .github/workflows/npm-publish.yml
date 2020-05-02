@@ -19,5 +19,5 @@ jobs:
       - run: npm run lib:build
       - run: npm run lib:publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-          CI_BUILD_TAG: ${{github.ref}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          CI_BUILD_TAG: ${{ github.ref }}
